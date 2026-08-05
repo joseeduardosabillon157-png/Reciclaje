@@ -1,45 +1,7 @@
-LABELS_ES = {
+streamlit
+tensorflow-cpu==2.20.0
+numpy
+pillow
+h5py
 
-    "cardboard": "Cartón",
-
-    "glass": "Vidrio",
-
-    "metal": "Metal",
-
-    "paper": "Papel",
-
-    "plastic": "Plástico",
-
-    "trash": "Basura",
-
-}
-
- 
-
-def predict_image(img_path_param):
-
-    img = Image.open(img_path_param).convert("RGB").resize(IMG_SIZE)
-
-    arr = np.array(img, dtype=np.float32) / 255.0
-
-    arr = np.expand_dims(arr, axis=0)
-
-    preds = model.predict(arr, verbose=0)[0]
-
-    top3_idx = np.argsort(preds)[-3:][::-1]
-
-    for idx in top3_idx:
-
-        raw = class_names[idx]
-
-        print(f"{LABELS_ES.get(raw, raw)}: {preds[idx]*100:.2f}%")
-
-    return class_names[np.argmax(preds)]
-
-# Ejemplo:
-
-example_img_path = "metal2.jpg"
-
-predict_image(example_img_path)
-
-plt.imshow(Image.open(example_img_path)); plt.title("Imagen analizada"); plt.axis("off")
+   

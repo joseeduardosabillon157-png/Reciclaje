@@ -71,5 +71,3 @@ if archivo:
         st.write(f"{clase}: {prob:.2f}%")
 else:
     st.info("Cargue una imagen para iniciar la clasificación.")
-
-    st.info("Cargue una imagen para iniciar la clasificación.")
